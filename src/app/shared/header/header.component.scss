@@ -1,0 +1,63 @@
+.arabic{
+  font-family: 'Cairo', sans-serif;
+}
+.pages li {
+  text-decoration: none;
+  list-style: none;
+  padding: 0px 10px ;
+
+}
+.lol{
+  cursor: pointer;
+}
+::placeholder{
+  color: #302CA2;
+  font-family: 'Cairo', sans-serif;
+  padding: 5px;
+}
+.search{
+  padding: 10px !important;
+}
+.fit{
+  width: fit-content !important;
+}
+.logo{
+  width: fit-content;
+  cursor: pointer;
+}
+.person{
+  width: fit-content;
+}
+.bg{
+  background-color:hsla(242, 57%, 40%, 0.17) ;
+}
+.co{
+  color: #302CA2;
+}
+
+.pages ul a{
+    text-decoration: none;
+  }
+
+.nav{
+
+  opacity: 0;
+}
+.all{
+  z-index: 9999;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+*{
+  font-family: 'Lobster', cursive;
+  // font-family: 'Prosto One', cursive;
+  // font-family: 'Teko', sans-serif;
+  letter-spacing: 1px;
+}
+@media screen and (max-width:412px) {
+  .xs{
+    width: 40% !important;
+    margin: 10px;
+  }
+
+
+}

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row align-items-center" >
+    <div class="col-md-5  ">
+      <img class=" pic" [src]="item.image" alt="">
+    </div>
+    <div class="col-md-7  p-2">
+      <h5 class="card-title py-2 fw-bolder">{{item.title}}</h5>
+      <p class="card-text text-muted">{{item.description}}</p>
+      <h6>Category : {{item.category}} </h6>
+      <p class="fw-bold text-success">Price : {{item.price|currency}}</p>
+      <div class="d-flex justify-content-between">
+        <div class="add d-flex w-auto">
+          <input type="number" class="form-control " [(ngModel)]="amount" *ngIf="addToChart">
+          <button class="btn btn-success mx-1" *ngIf="addToChart" (click)="add();addToChart=false"  >تاكيد </button>
+          <button  class="btn btn-color mx-1" (click)="addToChart=true" *ngIf="!addToChart">اضف الى السلة </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

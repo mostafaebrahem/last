@@ -1,0 +1,23 @@
+<div class=" pt-5">
+  <div class="row xs " >
+
+
+      <div class=" row col-sm-12 text-center justify-content-center mb-3 bg-light" *ngFor="let card of chartItems ,let i=index" >
+        <div class="pic col-sm-10 col-md-2 " >
+          <img class="w-100" [src]="card.item.image" alt="">
+        </div>
+        <div class="col-md-6 row flex-column align-items-center justify-content-evenly">
+              <h2 class="my-2 ">{{card.item.title}}</h2>
+          <!-- <td>{{card.item.id}}</td>    -->
+          <!-- <td>{{card.item.rating.rate}}</td> -->
+          <h4 class=" fw-bold my-2 ">Price : <span class="text-success">{{card.item.price|currency}}</span> </h4>
+          <h4 class="fw-bold my-2">Quantity : {{card.quantity}} </h4>
+          <div class="d-flex  justify-content-center">
+            <input type="number" min="0.0" [(ngModel)]="quantities[i]" class="form-control col-sm-5 col-md-3 p-0 mx-2 w-25 text-center"  >
+            <button (click)="updates(i)"  class="btn btn-warning col-sm-5 col-md-4 text-dark px-5">تعديل الكمية</button>
+            <!-- <button  *ngIf="!isUpdate" (click)="isUpdate=true" class="btn btn-warning  text-dark px-5">تعديل</button> -->
+          </div>
+          <button (click)="delete(i)"  class="btn btn-danger col-sm-4 my-3 text-dark px-5">حذف من السلة</button>
+        </div>
+  </div>
+</div>

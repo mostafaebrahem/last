@@ -1,0 +1,33 @@
+
+<div class="co position-relative"  >
+  <div [routerLink]="'/details/'+card.id" class="img d-flex justify-content-center"><img [src]="card.image" class="card-img-top w-75" alt="..."></div>
+  <div class="card-body" >
+    <h5 [routerLink]="'/details/'+card.id" class="card-title">{{card.title}}</h5>
+    <p [routerLink]="'/details/'+card.id" class="card-text text-muted">{{card.description}}</p>
+    <h6 class="fw-bold ">Category : {{card.category}}</h6>
+    <ngb-rating [(rate)]="card.rating.rate" [max]="5" [readonly]="false">
+      <ng-template let-fill="fill" let-index="index">
+        <i class="bi-star{{fill === 100 ? '-fill' : ''}}" [class.filled]="fill === 100" [class.low]="index < 2"></i>
+      </ng-template>
+      </ngb-rating>
+      <span class="mx-2 text-warning fw-bolder">{{card.rating.rate}}</span>
+      <hr />
+      <pre class="fw-bolder">Price:<b class="text-success">{{card.price|currency}}</b></pre>
+    <div class="">
+     <div class="add d-flex mt-4 w-100">
+        <input type="number" class="form-control" *ngIf="isAddToChart" min="0.0" [(ngModel)]="amount">
+        <button (click)="add()" *ngIf="isAddToChart" (click)="isAddToChart=false" [disabled]="amount==0" class="btn btn-success  mx-1">تأكيد</button>
+        <button (click)="isAddToChart=true" *ngIf="!isAddToChart" class="btn d-flex btn-color  mx-1">
+          <i class="fa-solid fa-cart-plus mt-1 pe-1"></i>
+          اضف الى السلة
+        </button>
+      </div>
+
+  </div>
+</div>
+<div class="price position-absolute mt-2 top-0 end-0 bg-success text-light text-center rounded-5 px-3 pt-1 ">
+  <p class="m-1 s">جديد</p>
+
+</div>
+</div>
+

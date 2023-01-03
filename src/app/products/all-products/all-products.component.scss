@@ -1,0 +1,21 @@
+
+.spin{
+  height: 80vh;
+}
+.co{
+  transition: .5s transform;
+  -webkit-transition: .5s transform;
+  -moz-transition: .5s transform;
+  -ms-transition: .5s transform;
+  -o-transition: .5s transform;
+}
+.co:hover{
+  z-index: 666;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  outline: 3px black;
+  background-color: rgba(245, 245, 220, 0.301);
+}
