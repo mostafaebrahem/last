@@ -8,6 +8,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductComponent implements OnInit {
   @Input() card:any=[];
+  @Input() added!:boolean[];
   @Output() item = new EventEmitter();
   isAddToChart:boolean=false;
   amount:number=0;

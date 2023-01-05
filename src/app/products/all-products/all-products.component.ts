@@ -12,15 +12,17 @@ export class AllProductsComponent implements OnInit {
 
   allProducts:ProInterface[]=[];
   allCategories:string[]=[];
+
    currCategory:string="";
    chartProducts:any[]=[];
    loading:boolean=false;
-  constructor(private _SharedService:SharedService) {
 
+  constructor(private _SharedService:SharedService) {
+    for(let i=0;i<this.allProducts.length;i++){
+
+    }
    }
-   test(){
-    // console.log(this.loading)
-   }
+
   ngOnInit(): void {
     this.getAllProducts()
     this.getAllCategories()
@@ -55,10 +57,12 @@ export class AllProductsComponent implements OnInit {
       let cartona=this.chartProducts.find(index=>index.item.id==event.item.id
       )
       if(cartona){
-        alert('this product is already exist in your chart')
+        alert('this product is already exist in your chart');
+
       }else{
          this.chartProducts.push(event);
-        localStorage.setItem('chart',JSON.stringify(this.chartProducts))
+        localStorage.setItem('chart',JSON.stringify(this.chartProducts));
+        
       }
 
     }else{
