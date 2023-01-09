@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './../../shared/services/shared.service';
 import { ProInterface } from './../../interfaces/proInterface';
+// import { NotificationService } from './../../shared/notification.service';
+
 
 
 @Component({
@@ -17,10 +19,8 @@ export class AllProductsComponent implements OnInit {
    chartProducts:any[]=[];
    loading:boolean=false;
 
-  constructor(private _SharedService:SharedService) {
-    for(let i=0;i<this.allProducts.length;i++){
-
-    }
+  constructor(private _SharedService:SharedService,) {
+   
    }
 
   ngOnInit(): void {
@@ -62,7 +62,7 @@ export class AllProductsComponent implements OnInit {
       }else{
          this.chartProducts.push(event);
         localStorage.setItem('chart',JSON.stringify(this.chartProducts));
-        
+
       }
 
     }else{
@@ -95,5 +95,22 @@ export class AllProductsComponent implements OnInit {
       // console.log( 'loading'+this.loading)
     }
   }
+
+  //toaster---------------
+//   showToasterSuccess(){
+//     this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
+// }
+
+// showToasterError(){
+//     this.notifyService.showError("Something is wrong", "ItSolutionStuff.com")
+// }
+
+// showToasterInfo(){
+//     this.notifyService.showInfo("This is info", "ItSolutionStuff.com")
+// }
+
+// showToasterWarning(){
+//     this.notifyService.showWarning("This is warning", "ItSolutionStuff.com")
+// }
 
 }

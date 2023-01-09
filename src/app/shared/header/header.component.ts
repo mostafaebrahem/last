@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -7,20 +8,26 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   chart:any[]=[];
-  
-  constructor() { }
+
+  constructor(private _SharedService:SharedService) { }
 
   ngOnInit(): void {
-    setInterval(()=>{
-     this.getChart()
-    },1000)
-  }
-  getChart(){
-    if('chart' in localStorage){
-      this.chart=JSON.parse(localStorage.getItem('chart')!);
 
-    }else{
-      this.chart=[];
+    // setInterval(()=>{
+      //  this.getChart()
+      // },1000)
+
+        this.getChart();
+
     }
+    getChart(){
+    //   if('chart' in localStorage){
+    //   this.chart=JSON.parse(localStorage.getItem('chart')!);
+
+    // }else{
+    //   this.chart=[];
+    // }
+   this.chart= this._SharedService.chartItems;
+   console.log("from header",this.chart)
   }
 }

@@ -1,14 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProInterface } from './../../interfaces/proInterface';
-import {  Observable, observable } from 'rxjs';
-
+import {  Observable} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-
+   chartItems:any=new BehaviorSubject([]);
   constructor(private _HttpClient:HttpClient) { }
+
+  getChart(){
+    if('chart' in localStorage){
+      let x=JSON.parse(localStorage.getItem('chart')!);
+      this.chartItems.next(x)
+
+      console.log("from service",this.chartItems)
+      return  this.chartItems;
+    }else{
+      this.chartItems=[];
+      console.log("from service",this.chartItems)
+      return  this.chartItems;
+    }
+  }
+
   getAllProducts():Observable<ProInterface[]>{
     return this._HttpClient.get<ProInterface[]>('https://fakestoreapi.com/products')
   }

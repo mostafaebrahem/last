@@ -7,7 +7,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { SelectComponent } from './select/select.component';
 import { FooterComponent } from './footer/footer.component'
 
-
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -18,6 +19,8 @@ import { FooterComponent } from './footer/footer.component'
   imports: [
   CommonModule,
     RouterModule,
+    // BrowserAnimationsModule,
+    // ToastrModule.forRoot()
 
   ],
   exports:[
@@ -25,7 +28,9 @@ import { FooterComponent } from './footer/footer.component'
     HttpClientModule,
     LoadingComponent,
     SelectComponent,
-    FooterComponent
+    FooterComponent,
+    // BrowserAnimationsModule,
+    // ToastrModule
   ]
 })
 export class SharedModule { }
