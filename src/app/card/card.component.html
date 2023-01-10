@@ -1,9 +1,11 @@
 <div class=" pt-5 container-sm mx-auto ">
   <div class="row xs m-auto" >
-
+    <div *ngIf="chartItems.length==0" class="alert alert-danger">
+      <p>The card is empty you can add products and check after that .</p>
+    </div>
 
       <div class=" row col-sm-12 text-center justify-content-center mb-3 bg-light" *ngFor="let card of chartItems ,let i=index" >
-        <div class="pic col-sm-10 col-md-2 " >
+        <div  class="pic col-sm-10 col-md-2 " >
           <img class="w-100" [src]="card.item.image" alt="">
         </div>
         <div class="col-md-6 row flex-column align-items-center justify-content-evenly">
