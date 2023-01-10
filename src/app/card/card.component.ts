@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
     chartItems:any[]=[];
-    // isUpdate:boolean[]=[];
+ 
     currChartUpdate:any;
     quantities:number[]=[];
     amount!:number;
@@ -36,10 +36,10 @@ export class CardComponent implements OnInit {
     }
   }
   updates(i:number){
-    // console.log(this.chartItems[i])
+
     this.currChartUpdate=this.chartItems[i];
     this.currChartUpdate.quantity=this.quantities[i];
-    // console.log(this.currChartUpdate);
+
     this.chartItems.splice(i,1);
     this.chartItems.push(this.currChartUpdate)
     console.log(this.chartItems)

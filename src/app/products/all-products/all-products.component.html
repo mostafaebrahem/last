@@ -16,13 +16,21 @@
     Warning Toaster
 </button> -->
 
-<div class="container-sm m-auto row justify-content-center " >
+<div class="container-sm m-auto row justify-content-center position-relative" >
   <div class="category mb-5  col-md-10  m-2 ">
         <app-select  [categories]="allCategories" [title]="'Categories'" (selectedValue)="filterCategory($event)"></app-select>
     </div>
   <ng-container *ngIf="!loading" >
+    <div class=" noti position-fixed w-auto m-auto">
+      <div class="alert alert-danger" *ngIf="isAdded==1">
+        <p>Item is already exist</p>
+      </div>
+      <div class="alert alert-success" *ngIf="isAdded==2">
+        <p>Item added successfuly</p>
+      </div>
+    </div>
     <div class="co col-sm-5 col-md-3 card pt-1 m-3 p-3 " *ngFor="let item of allProducts"     >
-       <app-product  [card]="item" (item)="addToChart($event)"></app-product>
+       <app-product  [addCheck]="isAdded" [card]="item" (item)="addToChart($event)"></app-product>
       </div>
 
   </ng-container>

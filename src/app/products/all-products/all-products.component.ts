@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './../../shared/services/shared.service';
 import { ProInterface } from './../../interfaces/proInterface';
-// import { NotificationService } from './../../shared/notification.service';
 
 
 
@@ -14,13 +13,14 @@ export class AllProductsComponent implements OnInit {
 
   allProducts:ProInterface[]=[];
   allCategories:string[]=[];
+  isAdded!:0|1|2;
 
    currCategory:string="";
    chartProducts:any[]=[];
    loading:boolean=false;
 
   constructor(private _SharedService:SharedService,) {
-   
+
    }
 
   ngOnInit(): void {
@@ -28,15 +28,29 @@ export class AllProductsComponent implements OnInit {
     this.getAllCategories()
 
   }
+  success(){
+    this.isAdded=2;
+    setTimeout(()=>{
+      this.isAdded=0;
+    },3000)
+
+  }
+  faild(){
+    this.isAdded=1;
+    setTimeout(()=>{
+      this.isAdded=0;
+    },3000)
+  }
   getAllCategories(){
     this.loading=true;
     this._SharedService.getAllCategories().subscribe((res)=>{
       this.loading=false;
     this.allCategories=res;
-    // console.log(this.allCategories)
+
     },err=>{
       this.loading=false;
-      alert('error '+err.message)
+      alert('error '+err.message);
+
     })
   }
   getProductsByCategory(){
@@ -44,7 +58,7 @@ export class AllProductsComponent implements OnInit {
     this._SharedService.getProductsByCategory(this.currCategory).subscribe((res)=>{
       this.loading=false;
       this.allProducts=res;
-      // console.log(this.allProducts)
+
     },err=>{
       this.loading=false;
       alert('reeor '+err.message)
@@ -58,11 +72,12 @@ export class AllProductsComponent implements OnInit {
       )
       if(cartona){
         alert('this product is already exist in your chart');
+        this.faild();
 
       }else{
          this.chartProducts.push(event);
         localStorage.setItem('chart',JSON.stringify(this.chartProducts));
-
+        this.success();
       }
 
     }else{
@@ -77,6 +92,7 @@ export class AllProductsComponent implements OnInit {
       this.loading=false;
         this.allProducts=response ;
         console.log('all',this.allProducts)
+
     },  err=>{
       this.loading=false;
       alert('error '+err.message)
@@ -85,32 +101,15 @@ export class AllProductsComponent implements OnInit {
   filterCategory(e:any){
     this.loading=true;
     this.currCategory=e.target.value;
-    // console.log(this.currCategory);
+
     if(this.currCategory=="all"){
       this.getAllProducts();
-      // console.log( "all"+this.currProducts)
-      // console.log( 'loading'+this.loading)
+
     }else{
       this.getProductsByCategory();
-      // console.log( 'loading'+this.loading)
+
     }
   }
 
-  //toaster---------------
-//   showToasterSuccess(){
-//     this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
-// }
-
-// showToasterError(){
-//     this.notifyService.showError("Something is wrong", "ItSolutionStuff.com")
-// }
-
-// showToasterInfo(){
-//     this.notifyService.showInfo("This is info", "ItSolutionStuff.com")
-// }
-
-// showToasterWarning(){
-//     this.notifyService.showWarning("This is warning", "ItSolutionStuff.com")
-// }
 
 }

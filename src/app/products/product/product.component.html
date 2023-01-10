@@ -17,6 +17,7 @@
     <div class="">
 
      <div class="add d-flex mt-4 w-100">
+
         <input type="number" class="form-control" *ngIf="isAddToChart" min="0.0" [(ngModel)]="amount">
         <button (click)="add()" *ngIf="isAddToChart" (click)="isAddToChart=false" [disabled]="amount==0" class="btn btn-success  mx-1">تأكيد</button>
         <button (click)="isAddToChart=true" *ngIf="!isAddToChart" class="btn d-flex btn-color  mx-1">
