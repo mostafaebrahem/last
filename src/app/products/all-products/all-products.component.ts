@@ -49,7 +49,7 @@ export class AllProductsComponent implements OnInit {
 
     },err=>{
       this.loading=false;
-      alert('error '+err.message);
+      // alert('error '+err.message);
 
     })
   }
@@ -71,7 +71,7 @@ export class AllProductsComponent implements OnInit {
       let cartona=this.chartProducts.find(index=>index.item.id==event.item.id
       )
       if(cartona){
-        alert('this product is already exist in your chart');
+        // alert('this product is already exist in your chart');
         this.faild();
 
       }else{
@@ -97,7 +97,7 @@ export class AllProductsComponent implements OnInit {
 
     },  err=>{
       this.loading=false;
-      alert('error '+err.message)
+      // alert('error '+err.message)
     });
   }
   filterCategory(e:any){

@@ -9,17 +9,29 @@ import { SharedService } from '../shared/services/shared.service';
 })
 export class CardComponent implements OnInit {
     chartItems:any[]=[];
-
+    salary:number=0;
     currChartUpdate:any;
     quantities:number[]=[];
     amount!:number;
-  constructor(private _SharedService:SharedService) { }
-
-  ngOnInit(): void {
+    totalAmounts:number=0;
+  constructor(private _SharedService:SharedService) {
     this.gettingChart();
+        this.getSalary();
   }
 
+  ngOnInit(): void {
 
+  }
+
+  getSalary(){
+    this.salary=0;
+    this.totalAmounts=0
+    for(let i=0;i<this.chartItems.length;i++){
+      this.salary+=this.chartItems[i].quantity*this.chartItems[i].item.price;
+      this.totalAmounts+=this.chartItems[i].quantity
+    }
+    console.log('salary',this.salary)
+  }
 
   addQuantity(){
     this.quantities=[];
@@ -46,15 +58,15 @@ export class CardComponent implements OnInit {
     console.log(this.chartItems)
     localStorage.setItem('chart',JSON.stringify(this.chartItems))
     this.addQuantity();
+    this.getSalary();
   }
-  update(){
 
-  }
   delete(i:number){
     console.log(i);
     this.chartItems.splice(i,1);
     localStorage.setItem('chart',JSON.stringify(this.chartItems));
     this._SharedService.chartLength--;
-    console.log(this.chartItems)
+    console.log(this.chartItems);
+    this.getSalary();
   }
 }
