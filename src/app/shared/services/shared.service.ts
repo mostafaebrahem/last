@@ -2,25 +2,28 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProInterface } from './../../interfaces/proInterface';
 import {  Observable} from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-   chartItems:any=new BehaviorSubject([]);
-  constructor(private _HttpClient:HttpClient) { }
+   chartItems:any[]=[];
+   chartLength:number=0;
+  constructor(private _HttpClient:HttpClient) {
+    this.getChart();
+  }
 
   getChart(){
     if('chart' in localStorage){
-      let x=JSON.parse(localStorage.getItem('chart')!);
-      this.chartItems.next(x)
-
+      this.chartItems=JSON.parse(localStorage.getItem('chart')!);
       console.log("from service",this.chartItems)
-      return  this.chartItems;
+      this.chartLength=this.chartItems.length;
+      console.log(this.chartLength)
     }else{
       this.chartItems=[];
+      this.chartLength=0;
       console.log("from service",this.chartItems)
-      return  this.chartItems;
+
     }
   }
 

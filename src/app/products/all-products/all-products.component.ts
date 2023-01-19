@@ -77,6 +77,8 @@ export class AllProductsComponent implements OnInit {
       }else{
          this.chartProducts.push(event);
         localStorage.setItem('chart',JSON.stringify(this.chartProducts));
+        this._SharedService.chartLength++;
+        console.log("chartLength ",this._SharedService.chartLength)
         this.success();
       }
 

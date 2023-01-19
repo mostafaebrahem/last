@@ -1,13 +1,13 @@
-<div class=" row justify-content-center all  bg-light position-fixed  start-0 end-0 px-2">
+<div class=" row justify-content-center all  bg-light position-fixed  start-0 end-0 px-4">
   <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
-    <div class="col-md-2 col-sm-6 xs m-auto d-flex bg rounded pe-0 mx-2 lol position-relative" routerLink="/cards">
-      <i class="fa-solid fa-cart-shopping co mt-2 me-0" ></i>
-      <p class="my-1 mx-0 ps-2 arabic"  > سلة التسوق</p>
-      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="chart.length>0">
-        {{chart.length}}
+    <div class="col-md-2  xs m-auto d-flex person bg rounded pe-0 mx-3 lol position-relative" routerLink="/cards">
+      <i class="fa-solid fa-cart-shopping co mt-2 ms-1" ></i>
+      <p class="my-1 mx-0 ps-2 arabic mx-2"  > سلة التسوق</p>
+      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
+        {{_SharedService.chartLength}}
       </div>
     </div>
-    <div class=" col-md-1 col-sm-5 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
+    <div class=" col-md-1 col-sm-4 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
       <i class="fa-solid fa-shop co m-0"></i>
       <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
     </div>
@@ -30,8 +30,8 @@
     <div class="col-md-2 col-sm-6 xs m-auto d-flex bg rounded pe-0 mx-2 lol position-relative" routerLink="/cards">
       <i class="fa-solid fa-cart-shopping co mt-2 me-0" ></i>
       <p class="my-1 mx-0 ps-2 arabic"  > سلة التسوق</p>
-      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="chart.length>0">
-        {{chart.length}}
+      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
+        {{_SharedService.chartLength}}
       </div>
     </div>
     <div class=" col-md-1 col-sm-5 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">

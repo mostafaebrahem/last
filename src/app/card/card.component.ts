@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared/services/shared.service';
 
 
 @Component({
@@ -8,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
     chartItems:any[]=[];
- 
+
     currChartUpdate:any;
     quantities:number[]=[];
     amount!:number;
-  constructor() { }
+  constructor(private _SharedService:SharedService) { }
 
   ngOnInit(): void {
     this.gettingChart();
@@ -52,7 +53,8 @@ export class CardComponent implements OnInit {
   delete(i:number){
     console.log(i);
     this.chartItems.splice(i,1);
-    localStorage.setItem('chart',JSON.stringify(this.chartItems))
+    localStorage.setItem('chart',JSON.stringify(this.chartItems));
+    this._SharedService.chartLength--;
     console.log(this.chartItems)
   }
 }
