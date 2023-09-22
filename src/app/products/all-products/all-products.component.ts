@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './../../shared/services/shared.service';
 import { ProInterface } from './../../interfaces/proInterface';
-
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -28,15 +28,18 @@ export class AllProductsComponent implements OnInit {
     this.getAllCategories()
 
   }
+  
   success(){
     this.isAdded=2;
+    Swal.fire("Congratulations!","Item added successfully ","success")
     setTimeout(()=>{
       this.isAdded=0;
     },3000)
-
+    
   }
   faild(){
     this.isAdded=1;
+    Swal.fire("faild to added!","Item is already exist ,please check your chart","error")
     setTimeout(()=>{
       this.isAdded=0;
     },3000)
@@ -49,7 +52,7 @@ export class AllProductsComponent implements OnInit {
 
     },err=>{
       this.loading=false;
-      // alert('error '+err.message);
+      
 
     })
   }
@@ -71,7 +74,6 @@ export class AllProductsComponent implements OnInit {
       let cartona=this.chartProducts.find(index=>index.item.id==event.item.id
       )
       if(cartona){
-        // alert('this product is already exist in your chart');
         this.faild();
 
       }else{
@@ -97,7 +99,7 @@ export class AllProductsComponent implements OnInit {
 
     },  err=>{
       this.loading=false;
-      // alert('error '+err.message)
+     
     });
   }
   filterCategory(e:any){

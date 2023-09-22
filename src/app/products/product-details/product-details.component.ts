@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { toArray } from 'rxjs';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ProInterface } from './../../interfaces/proInterface';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-product-details',
@@ -36,15 +37,17 @@ export class ProductDetailsComponent implements OnInit {
       let test= this.allChartData.find(index=>index.item.id==this.itemId);
       console.log(test);
       if(test){
-        alert('this product is already exist in your chart ')
+        Swal.fire("faild to added!","Item is already exist ,please check your chart","error")
       }else{
+        Swal.fire("Congratulations!","Item added successfully ","success")
         this.allChartData.push({'item':this.item,'quantity':this.amount});
-        // console.log(this.allChartData)
+
+        
         localStorage.setItem('chart',JSON.stringify(this.allChartData));
       }
     }else{
       this.allChartData.push({'item':this.item,'quantity':this.amount});
-        // console.log(this.allChartData)
+       
         localStorage.setItem('chart',JSON.stringify(this.allChartData));
     }
   }

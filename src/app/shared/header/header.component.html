@@ -1,54 +1,56 @@
-<div class=" row justify-content-center all  bg-light position-fixed  start-0 end-0 px-4">
-  <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
-    <div class="col-md-2  xs m-auto d-flex person bg rounded pe-0 mx-3 lol position-relative" routerLink="/cards">
-      <i class="fa-solid fa-cart-shopping co mt-2 ms-1" ></i>
-      <p class="my-1 mx-0 ps-2 arabic mx-2"  > سلة التسوق</p>
-      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
-        {{_SharedService.chartLength}}
+<div class="header w-75 ">
+  <div class=" row justify-content-center all m-0  bg-light position-fixed m-0 start-0 end-0 px-4">
+    <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
+      <div class="col-md-2 shoping-chart  xs m-auto d-flex person bg rounded pe-0 mx-3 lol position-relative" routerLink="/cards">
+        <i class="fa-solid fa-cart-shopping co mt-2 ms-1" ></i>
+        <p class="my-1 mx-0 ps-2 arabic mx-2"  > سلة التسوق</p>
+        <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
+          {{_SharedService.chartLength}}
+        </div>
       </div>
+      <div class=" col-md-1 our-products col-sm-4 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
+        <i class="fa-solid fa-shop co m-0"></i>
+        <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
+      </div>
+  
+        <div class="col-md-8 my-2 col-sm-10 search">
+          <form class="d-flex align-items-center" role="search">
+            <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass search bg co m-0 py-2 rounded-end p-2"></i>
+          </form>
+        </div>
+        <div class="  logo rounded text-light col-sm-4 col-md-4 bg-warning " routerLink="/products">
+          <h2 >Logo</h2>
+        </div>
     </div>
-    <div class=" col-md-1 col-sm-4 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
-      <i class="fa-solid fa-shop co m-0"></i>
-      <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
-    </div>
-
-      <div class="col-md-8 my-2 col-sm-10">
-        <form class="d-flex align-items-center" role="search">
-          <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass search bg co m-0 py-2 rounded-end p-2"></i>
-        </form>
-      </div>
-      <div class="  logo rounded text-light col-sm-4 col-md-4 bg-warning " routerLink="/products">
-        <h2 >Logo</h2>
-      </div>
   </div>
-</div>
-
-
-<div class=" row justify-content-center all  bg-light nav  start-0 end-0 ">
-  <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
-    <div class="col-md-2 col-sm-6 xs m-auto d-flex bg rounded pe-0 mx-2 lol position-relative" routerLink="/cards">
-      <i class="fa-solid fa-cart-shopping co mt-2 me-0" ></i>
-      <p class="my-1 mx-0 ps-2 arabic"  > سلة التسوق</p>
-      <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
-        {{_SharedService.chartLength}}
+  
+  
+  <div class=" row justify-content-center all  bg-light nav  start-0 end-0 ">
+    <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
+      <div class="col-md-2 col-sm-6 xs m-auto d-flex bg rounded pe-0 mx-2 lol position-relative" routerLink="/cards">
+        <i class="fa-solid fa-cart-shopping co mt-2 me-0" ></i>
+        <p class="my-1 mx-0 ps-2 arabic"  > سلة التسوق</p>
+        <div class="notification position-absolute top-0 text-center bg-danger text-light rounded-circle" *ngIf="_SharedService.chartLength>0">
+          {{_SharedService.chartLength}}
+        </div>
       </div>
+      <div class=" col-md-1 col-sm-5 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
+        <i class="fa-solid fa-shop co m-0"></i>
+        <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
+      </div>
+  
+        <div class="col-md-8 my-2 col-sm-10">
+          <form class="d-flex align-items-center" role="search">
+            <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass search bg co m-0 py-2 rounded-end p-2"></i>
+          </form>
+        </div>
+        <div class="  logo rounded text-light col-sm-4 col-md-4 bg-warning " routerLink="/products">
+          <h2 >Logo</h2>
+        </div>
     </div>
-    <div class=" col-md-1 col-sm-5 d-flex xs align-items-center py-0  person bg  px-2 lol rounded" routerLink="/products">
-      <i class="fa-solid fa-shop co m-0"></i>
-      <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
-    </div>
-
-      <div class="col-md-8 my-2 col-sm-10">
-        <form class="d-flex align-items-center" role="search">
-          <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass search bg co m-0 py-2 rounded-end p-2"></i>
-        </form>
-      </div>
-      <div class="  logo rounded text-light col-sm-4 col-md-4 bg-warning " routerLink="/products">
-        <h2 >Logo</h2>
-      </div>
   </div>
+  
+  
 </div>
-
-

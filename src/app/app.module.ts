@@ -9,9 +9,6 @@ import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { ToastrModule } from 'ngx-toastr';
-
 
 @NgModule({
   declarations: [
@@ -25,8 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardModule,
     FormsModule,
     NgbModule,
-    // BrowserAnimationsModule,
-    // ToastrModule.forRoot()
+   
 
   ],
   providers: [],

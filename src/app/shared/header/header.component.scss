@@ -12,6 +12,7 @@
   padding: 0px 10px ;
 
 }
+
 .lol{
   cursor: pointer;
 }
@@ -60,9 +61,31 @@
 }
 @media screen and (max-width:412px) {
   .xs{
-    width: 40% !important;
-    margin: 10px;
+    width: auto !important;
+    margin: 10px 5px;
+  }
+  .search{
+    width: auto;
   }
 
-
+}
+@media screen and (max-width:360px) {
+    
+  .search{
+    width: auto !important;
+  }
+  .person{
+    width: 40% !important;
+  }
+  .our-products{
+    width: 40% !important;
+    text-align: center;
+  }
+  .all{
+    width: 100% !important;
+    // padding:2px ;
+  }
+  .header{
+    width: 100% !important                            ;
+  }
 }
