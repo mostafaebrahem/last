@@ -12,10 +12,10 @@
         <i class="fa-solid fa-shop co m-0"></i>
         <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
       </div>
-  
+
         <div class="col-md-8 my-2 col-sm-10 search">
           <form class="d-flex align-items-center" role="search">
-            <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
+            <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="text" (change)="searchingItems();searchKobry()" [(ngModel)]="_SharedService.searchInput" [ngModelOptions]="{standalone: true}" placeholder="عم تبحث ؟" aria-label="Search">
             <i class="fa-solid fa-magnifying-glass search bg co m-0 py-2 rounded-end p-2"></i>
           </form>
         </div>
@@ -24,8 +24,8 @@
         </div>
     </div>
   </div>
-  
-  
+
+
   <div class=" row justify-content-center all  bg-light nav  start-0 end-0 ">
     <div class=" row m-2 col-sm-12  justify-content-center align-items-center" >
       <div class="col-md-2 col-sm-6 xs m-auto d-flex bg rounded pe-0 mx-2 lol position-relative" routerLink="/cards">
@@ -39,7 +39,7 @@
         <i class="fa-solid fa-shop co m-0"></i>
         <p class="my-1 mx-0 ps-2 arabic"  >منتجاتنا</p>
       </div>
-  
+
         <div class="col-md-8 my-2 col-sm-10">
           <form class="d-flex align-items-center" role="search">
             <input class="form-control rounded-0 bg border-0 rounded-start m-0 text-end co" type="search" placeholder="عم تبحث ؟" aria-label="Search">
@@ -51,6 +51,6 @@
         </div>
     </div>
   </div>
-  
-  
+
+
 </div>

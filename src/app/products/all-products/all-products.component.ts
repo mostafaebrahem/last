@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from './../../shared/services/shared.service';
 import { ProInterface } from './../../interfaces/proInterface';
 import Swal from 'sweetalert2'
+import { from } from 'rxjs';
 
 
 @Component({
@@ -14,13 +15,16 @@ export class AllProductsComponent implements OnInit {
   allProducts:ProInterface[]=[];
   allCategories:string[]=[];
   isAdded!:0|1|2;
-
+    searchCartona:any=[]
    currCategory:string="";
    chartProducts:any[]=[];
    loading:boolean=false;
 
-  constructor(private _SharedService:SharedService,) {
-
+  constructor(public _SharedService:SharedService,) {
+    // from(_SharedService.searchCartona).subscribe((data)=>{
+    //   this.searchCartona=data
+    //   console.log("search",this.searchCartona)
+    // })
    }
 
   ngOnInit(): void {
@@ -28,14 +32,14 @@ export class AllProductsComponent implements OnInit {
     this.getAllCategories()
 
   }
-  
+
   success(){
     this.isAdded=2;
     Swal.fire("Congratulations!","Item added successfully ","success")
     setTimeout(()=>{
       this.isAdded=0;
     },3000)
-    
+
   }
   faild(){
     this.isAdded=1;
@@ -52,7 +56,7 @@ export class AllProductsComponent implements OnInit {
 
     },err=>{
       this.loading=false;
-      
+
 
     })
   }
@@ -99,7 +103,7 @@ export class AllProductsComponent implements OnInit {
 
     },  err=>{
       this.loading=false;
-     
+
     });
   }
   filterCategory(e:any){

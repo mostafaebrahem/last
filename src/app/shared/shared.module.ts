@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoadingComponent } from './loading/loading.component';
 import { SelectComponent } from './select/select.component';
 import { FooterComponent } from './footer/footer.component'
+import { FormsModule } from '@angular/forms';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ToastrModule } from 'ngx-toastr';
@@ -19,6 +20,7 @@ import { FooterComponent } from './footer/footer.component'
   imports: [
   CommonModule,
     RouterModule,
+    FormsModule
     // BrowserAnimationsModule,
     // ToastrModule.forRoot()
 

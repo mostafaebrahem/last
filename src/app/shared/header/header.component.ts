@@ -8,12 +8,17 @@ import { SharedService } from '../services/shared.service';
 })
 export class HeaderComponent implements OnInit {
 
-  
+
   constructor(public _SharedService:SharedService) {
 
   }
 
   ngOnInit(): void {
-
   }
+  searchingItems(){
+    console.log(this._SharedService.searchInput)
+  }
+ searchKobry(){
+  this._SharedService.inputFilter()
+ }
 }

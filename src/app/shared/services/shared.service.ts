@@ -9,10 +9,33 @@ import {  Observable} from 'rxjs';
 export class SharedService {
    chartItems:any[]=[];
    chartLength:number=0;
+   searchInput:string="";
+   searchCartona:ProInterface[]=[];
+  //  allData:ProInterface[]=[]
   constructor(private _HttpClient:HttpClient) {
     this.getChart();
+    // this.getAllProducts().subscribe((data)=>{
+    //   this.allData=data
+    // })
   }
+  inputFilter(){
+    this.searchCartona=[]
+    this.getAllProducts().subscribe((data)=>{
+      if(this.searchInput){
+        data.filter((item)=>{
+                let check=item.title.includes(this.searchInput)
+                console.log(check)
+                if(check){
+                  this.searchCartona.push(item)
+                }
 
+              });
+    }
+
+      console.log(this.searchCartona)
+    })
+
+  }
   getChart(){
     if('chart' in localStorage){
       this.chartItems=JSON.parse(localStorage.getItem('chart')!);
