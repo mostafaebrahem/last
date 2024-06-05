@@ -4,21 +4,15 @@ import { SharedService } from '../services/shared.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor(public _SharedService: SharedService) {}
 
+  ngOnInit(): void {}
 
-  constructor(public _SharedService:SharedService) {
-
+  ngAfterViewInit(): void {
+    this._SharedService.headerSearchInput =
+      document.getElementById('searchInput');
   }
-
-  ngOnInit(): void {
-  }
-  searchingItems(){
-    console.log(this._SharedService.searchInput)
-  }
- searchKobry(){
-  this._SharedService.inputFilter()
- }
 }

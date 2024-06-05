@@ -1,7 +1,8 @@
-.arabic{
-  font-family: 'Cairo', sans-serif;
+.arabic {
+  font-family: "Cairo", sans-serif;
 }
-.notification{
+
+.notification {
   width: 20px;
   height: 20px;
   left: -10px;
@@ -9,83 +10,78 @@
 .pages li {
   text-decoration: none;
   list-style: none;
-  padding: 0px 10px ;
-
+  padding: 0px 10px;
 }
 
-.lol{
+.lol {
   cursor: pointer;
 }
-::placeholder{
-  color: #302CA2;
-  font-family: 'Cairo', sans-serif;
+::placeholder {
+  color: #302ca2;
+  font-family: "Cairo", sans-serif;
   padding: 5px;
 }
-.search{
+.search {
   padding: 10px !important;
 }
-.fit{
+.fit {
   width: fit-content !important;
 }
-.logo{
+.logo {
   width: fit-content;
   cursor: pointer;
 }
-.person{
+.person {
   width: fit-content;
 }
-.bg{
-  background-color:hsla(242, 57%, 40%, 0.17) ;
+.bg {
+  background-color: hsla(242, 57%, 40%, 0.17);
 }
-.co{
-  color: #302CA2;
+.co {
+  color: #302ca2;
 }
 
-.pages ul a{
-    text-decoration: none;
-  }
+.pages ul a {
+  text-decoration: none;
+}
 
-.nav{
-
+.nav {
   opacity: 0;
 }
-.all{
+.all {
   z-index: 9999;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
-*{
-  font-family: 'Lobster', cursive;
-  // font-family: 'Prosto One', cursive;
-  // font-family: 'Teko', sans-serif;
+* {
+  font-family: "Lobster", cursive;
+
   letter-spacing: 1px;
 }
-@media screen and (max-width:412px) {
-  .xs{
+@media screen and (max-width: 412px) {
+  .xs {
     width: auto !important;
     margin: 10px 5px;
   }
-  .search{
+  .search {
     width: auto;
   }
-
 }
-@media screen and (max-width:360px) {
-    
-  .search{
+@media screen and (max-width: 360px) {
+  .search {
     width: auto !important;
   }
-  .person{
+  .person {
     width: 40% !important;
   }
-  .our-products{
+  .our-products {
     width: 40% !important;
     text-align: center;
   }
-  .all{
+  .all {
     width: 100% !important;
     // padding:2px ;
   }
-  .header{
-    width: 100% !important                            ;
+  .header {
+    width: 100% !important ;
   }
 }

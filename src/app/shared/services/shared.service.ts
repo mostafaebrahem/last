@@ -1,82 +1,74 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { ProInterface } from './../../interfaces/proInterface';
-import {  Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
-   chartItems:any[]=[];
-   chartLength:number=0;
-   searchInput:string="";
-   searchCartona:ProInterface[]=[];
-  //  allData:ProInterface[]=[]
-  constructor(private _HttpClient:HttpClient) {
+  chartItems: any[] = [];
+  chartLength: number = 0;
+  searchInput: string = '';
+  searchCartona: ProInterface[] = [];
+  headerSearchInput: HTMLElement | null = null;
+
+  constructor(private _HttpClient: HttpClient) {
     this.getChart();
-    // this.getAllProducts().subscribe((data)=>{
-    //   this.allData=data
-    // })
   }
-  inputFilter(){
-    this.searchCartona=[]
-    this.getAllProducts().subscribe((data)=>{
-      if(this.searchInput){
-        data.filter((item)=>{
-                let check=item.title.includes(this.searchInput)
-                console.log(check)
-                if(check){
-                  this.searchCartona.push(item)
-                }
 
-              });
-    }
+  getChart() {
+    if ('chart' in localStorage) {
+      this.chartItems = JSON.parse(localStorage.getItem('chart')!);
 
-      console.log(this.searchCartona)
-    })
-
-  }
-  getChart(){
-    if('chart' in localStorage){
-      this.chartItems=JSON.parse(localStorage.getItem('chart')!);
-      console.log("from service",this.chartItems)
-      this.chartLength=this.chartItems.length;
-      console.log(this.chartLength)
-    }else{
-      this.chartItems=[];
-      this.chartLength=0;
-      console.log("from service",this.chartItems)
-
+      this.chartLength = this.chartItems.length;
+    } else {
+      this.chartItems = [];
+      this.chartLength = 0;
     }
   }
 
-  getAllProducts():Observable<ProInterface[]>{
-    return this._HttpClient.get<ProInterface[]>('https://fakestoreapi.com/products')
+  getAllProducts(): Observable<ProInterface[]> {
+    return this._HttpClient.get<ProInterface[]>(
+      'https://fakestoreapi.com/products'
+    );
   }
-  getSingleProduct(id:number):Observable<ProInterface>{
-    return this._HttpClient.get<ProInterface>(`https://fakestoreapi.com/products/${id}`);
+  getSingleProduct(id: number): Observable<ProInterface> {
+    return this._HttpClient.get<ProInterface>(
+      `https://fakestoreapi.com/products/${id}`
+    );
   }
-  getLimitProducts(limit:number){
-    return this._HttpClient.get(`https://fakestoreapi.com/products?limit=${limit}`)
+  getLimitProducts(limit: number) {
+    return this._HttpClient.get(
+      `https://fakestoreapi.com/products?limit=${limit}`
+    );
   }
-  sortProducts(sort:string){
+  sortProducts(sort: string) {
     // you can use with 'desc' or 'asc' as you want.
-    return this._HttpClient.get(`https://fakestoreapi.com/products?sort=${sort}`)
+    return this._HttpClient.get(
+      `https://fakestoreapi.com/products?sort=${sort}`
+    );
   }
-  getAllCategories():Observable<string[]>{
-    return this._HttpClient.get<string[]>('https://fakestoreapi.com/products/categories')
+  getAllCategories(): Observable<string[]> {
+    return this._HttpClient.get<string[]>(
+      'https://fakestoreapi.com/products/categories'
+    );
   }
-  getProductsByCategory(cat:string):Observable<ProInterface[]>{
-    return this._HttpClient.get<ProInterface[]>(`https://fakestoreapi.com/products/category/${cat}`)
+  getProductsByCategory(cat: string): Observable<ProInterface[]> {
+    return this._HttpClient.get<ProInterface[]>(
+      `https://fakestoreapi.com/products/category/${cat}`
+    );
   }
-  addProduct(product:ProInterface){
-    this._HttpClient.post('https://fakestoreapi.com/products',JSON.stringify(product))
+  addProduct(product: ProInterface) {
+    this._HttpClient.post(
+      'https://fakestoreapi.com/products',
+      JSON.stringify(product)
+    );
   }
-  updateProduct(proID:number,updated:ProInterface){
-    this._HttpClient.put(`https://fakestoreapi.com/products/${proID}`,updated)
+  updateProduct(proID: number, updated: ProInterface) {
+    this._HttpClient.put(`https://fakestoreapi.com/products/${proID}`, updated);
   }
-  deleteProduct(proID:number){
-    this._HttpClient.delete(`https://fakestoreapi.com/products/${proID}`)
+  deleteProduct(proID: number) {
+    this._HttpClient.delete(`https://fakestoreapi.com/products/${proID}`);
   }
-
 }
