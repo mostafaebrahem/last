@@ -1,5 +1,5 @@
-<div class="allItems pt-2 container">
-  <table class="table bg-dark text-light text-center  rounded">
+<div class="allItems pt-5 container">
+  <table class="table bg-dark text-light text-center rounded">
     <thead>
       <th>Total Items</th>
       <th>Price</th>
@@ -7,35 +7,62 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{totalAmounts}}</td>
-        <td>{{salary|currency}}</td>
-        <td><button (click)="confirming()" class="btn btn-success">Confirm</button></td>
+        <td>{{ totalAmounts }}</td>
+        <td>{{ salary | currency }}</td>
+        <td>
+          <button (click)="confirming()" class="btn btn-success">
+            Confirm
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-<div class=" pt-2 container-sm mx-auto ">
-  <div class="row xs m-auto" >
-    <div *ngIf="chartItems.length==0" class="alert alert-danger">
+<div class="pt-2 container-sm mx-auto">
+  <div class="row xs m-auto">
+    <div *ngIf="chartItems.length == 0" class="alert alert-danger">
       <p>The card is empty you can add products and check after that .</p>
     </div>
 
-      <div class=" row col-sm-12 text-center justify-content-center align-items-center mb-3 bg-light" *ngFor="let card of chartItems ,let i=index" >
-        <div  class="pic col-sm-10 col-md-2 " >
-          <img class="w-100" [src]="card.item.image" alt="">
-        </div>
-        <div class="col-md-6 row flex-column align-items-center justify-content-evenly">
-              <h2 class="my-2 ">{{card.item.title}}</h2>
+    <div
+      class="row col-sm-12 text-center justify-content-center align-items-center mb-3 bg-light"
+      *ngFor="let card of chartItems; let i = index"
+    >
+      <div class="pic col-sm-10 col-md-2">
+        <img class="w-100" [src]="card.item.image" alt="" />
+      </div>
+      <div
+        class="col-md-6 row flex-column align-items-center justify-content-evenly"
+      >
+        <h2 class="my-2">{{ card.item.title }}</h2>
 
-          <h4 class=" fw-bold my-2 ">Price : <span class="text-success">{{card.item.price|currency}}</span> </h4>
-          <h4 class="fw-bold my-2">Quantity : {{card.quantity}} </h4>
-          <div class="d-flex  justify-content-cen                                                                                                           ter">
-            <input type="number" min="1.0" [(ngModel)]="quantities[i]" class="form-control col-sm-5 col-md-3 p-0 mx-2 w-25 text-center"  >
-            <button [disabled]="activateUpdate(i)==true" (click)="updates(i)"  class="btn btn-warning col-sm-5 col-md-4 text-dark px-5">تعديل الكمية</button>
-
-          </div>
-          <button (click)="delete(i)"  class="btn btn-danger col-sm-4 my-3 text-dark px-5">حذف من السلة</button>
+        <h4 class="fw-bold my-2">
+          Price :
+          <span class="text-success">{{ card.item.price | currency }}</span>
+        </h4>
+        <h4 class="fw-bold my-2">Quantity : {{ card.quantity }}</h4>
+        <div class="d-flex justify-content-cen ter">
+          <input
+            type="number"
+            min="1.0"
+            [(ngModel)]="quantities[i]"
+            class="form-control col-sm-5 col-md-3 p-0 mx-2 w-25 text-center"
+          />
+          <button
+            [disabled]="activateUpdate(i) == true"
+            (click)="updates(i)"
+            class="btn btn-warning col-sm-5 col-md-4 text-dark px-5"
+          >
+            تعديل الكمية
+          </button>
         </div>
+        <button
+          (click)="delete(i)"
+          class="btn btn-danger col-sm-4 my-3 text-dark px-5"
+        >
+          حذف من السلة
+        </button>
+      </div>
+    </div>
   </div>
 </div>
-
